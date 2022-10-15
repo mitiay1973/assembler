@@ -87,10 +87,16 @@ int sravnenie(int a, int b)
 		mov eax, a
 		mov ebx, b
 		cmp eax, ebx; 
-		jnz notAdd
-		mov c, 1
-			notAdd:
+		je equal
+		jg greater
+		jmp less
+		equal:
 		mov c, 0
+			greater :
+			mov c, 1
+			less :
+			mov c, 2
+			exit:
 	}
 	return c;
 }
